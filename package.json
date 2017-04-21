@@ -74,7 +74,8 @@
     "tslint": "^5.0.0",
     "typescript": "^2.2.2",
     "webpack-dev-middleware": "^1.10.1",
-    "webpack-hot-middleware": "^2.18.0"
+    "webpack-hot-middleware": "^2.18.0",
+    "why-did-you-update": "^0.0.8"
   },
   "jest": {
     "moduleFileExtensions": [
