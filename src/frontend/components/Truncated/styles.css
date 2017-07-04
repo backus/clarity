@@ -1,0 +1,55 @@
+@import '../variables.css';
+
+:root {
+  --transition: .3s;
+  --n-lines-start: 3;
+  --n-lines-finish: 5;
+  --line-height: 1.5em;
+}
+
+.read-more-wrap {
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: calc(var(--n-lines-start) * var(--line-height));
+  line-height: var(--line-height);
+  transition: var(--transition);
+  overflow: hidden;
+}
+.with-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--n-lines-start);
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.read-more-state {
+  display: none;
+  &:checked ~ .read-more-wrap {
+    max-height: calc(5 * var(--line-height));
+    transition: var(--transition);
+  }
+  & ~ .read-more-trigger:before {
+    content: 'More';
+  }
+  &:checked ~ .read-more-trigger:before {
+    content: 'Less';
+  }
+}
+
+.read-more-trigger {
+  transition: var(--transition);
+  background: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 .5em;
+  font-size: .9em;
+  line-height: 2;
+  border-radius: .25em;
+  color: var(--grey2);
+  border: 1px solid var(--light-grey2);
+  &:hover {
+    color: var(--grey1);
+    border: 1px solid var(--grey5);
+    background: color(white alpha(10%));
+  }
+}
